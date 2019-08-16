@@ -1,0 +1,31 @@
+Package: nutrigraph
+Type: Package
+Title: Food network inference and visualization
+Version: 0.1.0
+Author: Victor Gasque, Boris Hejblum, Cecilia Samieri
+Maintainer: Victor Gasque <victor.gasque@protonmail.com>
+Description: Displays a weighted undirected graph from an adjacency matrix.
+    Can perform confidence-interval bootstrap inference with
+    mutual information or maximal information coefficient.
+    Based on my Master 1 internship in the Bordeaux Population Health center,
+    mentored by Boris Hejblum and Cecilia Samieri.
+License: GNU GPLv3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+  dplyr,
+  ggplot2,
+  magrittr,
+  tibble,
+  tidyr,
+  viridis,
+  igraph,
+  ggraph,
+  minerva,
+  rlang
+Suggests:
+  minet,
+  infotheo
+URL: https://github.com/vgasque/nutrigraph/
+BugReports: https://github.com/vgasque/nutrigraph/issues
+RoxygenNote: 6.1.1
