@@ -126,7 +126,7 @@ graph_from_links_nodes <- function(network_data,
     if (node_type == "point") {
       net <- net + geom_node_point(aes(size = .data$size))
     } else {
-      net <- net + geom_node_label(aes(label = node_label, size = .data$size))
+      net <- net + geom_node_label(aes(label = node_label, size = .data$size), repel = T)
     }
 
   } else {
@@ -135,7 +135,7 @@ graph_from_links_nodes <- function(network_data,
                                    color = "black", shape = 21)
     } else {
       net <- net + geom_node_label(aes(label = node_label, fill = .data$family,
-                                       size = .data$size), color = "black")
+                                       size = .data$size), color = "black", repel = T)
     }
 
     # Nodes color and legend
