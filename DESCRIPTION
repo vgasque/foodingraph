@@ -1,4 +1,4 @@
-Package: nutrigraph
+Package: foodingraph
 Type: Package
 Title: Food network inference and visualization
 Version: 0.1.0
@@ -26,6 +26,6 @@ Imports:
 Suggests:
   minet,
   infotheo
-URL: https://github.com/vgasque/nutrigraph/
-BugReports: https://github.com/vgasque/nutrigraph/issues
+URL: https://github.com/vgasque/foodingraph/
+BugReports: https://github.com/vgasque/foodingraph/issues
 RoxygenNote: 6.1.1

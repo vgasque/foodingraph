@@ -1,4 +1,4 @@
-# nutrigraph : food network inference
+# foodingraph : food network inference
 
 A simple R package to infer food networks from categorical and binary variables.
 
