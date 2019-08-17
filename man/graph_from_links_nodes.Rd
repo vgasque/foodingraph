@@ -5,8 +5,9 @@
 \title{Display a graph from a list of links and nodes}
 \usage{
 graph_from_links_nodes(network_data, main_title = "", ret = T,
-  node_label_title = T, family_palette = NULL, layout = "nicely",
-  remove_null = T, alpha_edge = T, edge_width_range = c(0.2, 2),
+  node_type = c("point", "label"), node_label_title = T,
+  family_palette = NULL, layout = "nicely", remove_null = T,
+  alpha_edge = T, edge_width_range = c(0.2, 2),
   edge_alpha_range = c(0.3, 1), node_label_size = 3,
   legend_label_size = 10, ...)
 }
@@ -16,6 +17,9 @@ graph_from_links_nodes(network_data, main_title = "", ret = T,
 \item{main_title}{(string, optional) : the title of the network}
 
 \item{ret}{(bool, default TRUE) : should the network graph and degree table be returned or directly displayed}
+
+\item{node_type}{: \code{point} (default) for the graph to display points and the label outside the point, or \code{label}
+to have a node which is the label itself (the text size will then be associated to the node degree)}
 
 \item{node_label_title}{(bool, default F) : should the node labels be the names or title column?
 (e.g. names : CRUDSAL_cat, title : Raw vegetables)}

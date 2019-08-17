@@ -11,6 +11,8 @@
 #' @param network_data (list of two) : links, nodes with the proper structure
 #' @param main_title (string, optional) : the title of the network
 #' @param ret (bool, default TRUE) : should the network graph and degree table be returned or directly displayed
+#' @param node_type : \code{point} (default) for the graph to display points and the label outside the point, or \code{label}
+#' to have a node which is the label itself (the text size will then be associated to the node degree)
 #' @param node_label_title (bool, default F) : should the node labels be the names or title column?
 #'    (e.g. names : CRUDSAL_cat, title : Raw vegetables)
 #' @param family_palette (list of key = value) : the keys are the family codes (from family column in the legend),
@@ -46,6 +48,7 @@
 graph_from_links_nodes <- function(network_data,
                                    main_title = "",
                                    ret = T,
+                                   node_type = c("point", "label"),
                                    node_label_title = T,
                                    family_palette = NULL,
                                    layout = "nicely",
@@ -60,6 +63,8 @@ graph_from_links_nodes <- function(network_data,
   if (nrow(network_data$links) == 0) {
     stop("No edges. Can't produce a graph")
   }
+
+  node_type <- match.arg(node_type)
 
   # Create the igraph object
   network_igraph <- graph_from_data_frame(d = network_data$links,
@@ -120,11 +125,20 @@ graph_from_links_nodes <- function(network_data,
 
   # Nodes
   if (is.null(V(network_igraph)$family)) {
-    net <- net +
-      geom_node_point(aes(size = .data$size))
+    if (node_type == "point") {
+      net <- net + geom_node_point(aes(size = .data$size))
+    } else {
+      net <- net + geom_node_label(aes(label = node_label, size = .data$size))
+    }
+
   } else {
-    net <- net +
-      geom_node_point(aes(fill = .data$family, size = .data$size), color = "black", shape = 21)
+    if (node_type == "point") {
+      net <- net + geom_node_point(aes(fill = .data$family, size = .data$size),
+                                   color = "black", shape = 21)
+    } else {
+      net <- net + geom_node_label(aes(label = node_label, fill = .data$family,
+                                       size = .data$size), color = "black", shape = 21)
+    }
 
     # Nodes color and legend
     if (is.null(family_palette)) {
@@ -136,9 +150,13 @@ graph_from_links_nodes <- function(network_data,
     }
   }
 
+  if (node_type == "point") {
+    net <- net +
+      geom_node_text(aes(label = node_label), size = node_label_size, repel = T)
+  }
+
   # Node labels
   net <- net +
-    geom_node_text(aes(label = node_label), size = node_label_size, repel = T) +
     labs(size = "Node degree") +
 
     # Legend order
