@@ -10,7 +10,6 @@
 #'
 #' @param network_data (list of two) : links, nodes with the proper structure
 #' @param main_title (string, optional) : the title of the network
-#' @param ret (bool, default TRUE) : should the network graph and degree table be returned or directly displayed
 #' @param node_type : \code{point} (default) for the graph to display points and the label outside the point, or \code{label}
 #' to have a node which is the label itself (the text size will then be associated to the node degree)
 #' @param node_label_title (bool, default F) : should the node labels be the names or title column?
@@ -47,7 +46,6 @@
 #' @export
 graph_from_links_nodes <- function(network_data,
                                    main_title = "",
-                                   ret = T,
                                    node_type = c("point", "label"),
                                    node_label_title = T,
                                    family_palette = NULL,
@@ -137,7 +135,7 @@ graph_from_links_nodes <- function(network_data,
                                    color = "black", shape = 21)
     } else {
       net <- net + geom_node_label(aes(label = node_label, fill = .data$family,
-                                       size = .data$size), color = "black", shape = 21)
+                                       size = .data$size), color = "black")
     }
 
     # Nodes color and legend

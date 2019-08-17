@@ -22,7 +22,25 @@
 #'  CAREFUL : if set to TRUE (default), be sure to have the same colors in the family legend
 #'  of the graphs (a fixed palette can be set using the \code{generate_family_palette()} func.).
 #'  Default is TRUE.
-#' @param ... parameters passed to \code{\link{graph_from_links_nodes}}
+#' @param main_title (string, optional) : the title of the network
+#' @param node_type : \code{point} (default) for the graph to display points and the label outside the point, or \code{label}
+#' to have a node which is the label itself (the text size will then be associated to the node degree)
+#' @param node_label_title (bool, default F) : should the node labels be the names or title column?
+#'    (e.g. names : CRUDSAL_cat, title : Raw vegetables)
+#' @param family_palette (list of key = value) : the keys are the family codes (from family column in the legend),
+#'  and the values are the corresponding colors. Can be generated using the \code{generate_family_palette()} func.
+#'  USEFUL if there is a need to compare multiple graphs of the same families, so the color is consistent.
+#'  If NULL (default), the palette will be automatically generated using viridis
+#' @param layout (chr) : the layout to be used to construct the graph
+#' @param remove_null (bool) : should the nodes with 0 connections (degree 0) be removed from the graph.
+#'  default is TRUE.
+#' @param alpha_edge (bool) : should the edges have a transparent scale? In addition to the width scale.
+#' @param edge_width_range : range of the edges width. (default is 0.2 to 2)
+#' @param edge_alpha_range : if \code{alpha_edge} is TRUE, the range of the alpha values (between 0 and 1).
+#' Default is 0.3 to 1.
+#' @param node_label_size : the size of the node labels. Default is 3.
+#' @param legend_label_size : the size of the legend labels. Default is 10.
+#' @param ... : other parameters to pass to ggraph `create_layout`
 #' @examples
 #' adj_matrix <- cor(iris[,-5])
 #' legend <- data.frame(name = colnames(iris[,-5]),
@@ -35,6 +53,17 @@ graph_from_matrix <- function(adjacency_matrix,
                               threshold = 0,
                               abs_threshold = T,
                               filter_nodes = T,
+                              main_title = "",
+                              node_type = c("point", "label"),
+                              node_label_title = T,
+                              family_palette = NULL,
+                              layout = "nicely",
+                              remove_null = T,
+                              alpha_edge = T,
+                              edge_width_range = c(0.2,2),
+                              edge_alpha_range = c(0.3, 1),
+                              node_label_size = 3,
+                              legend_label_size  = 10,
                               ...) {
 
   # Extract the links and nodes from the adjacency matrix
@@ -45,5 +74,16 @@ graph_from_matrix <- function(adjacency_matrix,
                                             filter_nodes = filter_nodes)
 
   # Display the graph
-  graph_from_links_nodes(network_link_nodes, ...)
+  graph_from_links_nodes(network_link_nodes, main_title = main_title,
+                         node_type = node_type,
+                         node_label_title = node_label_title,
+                         family_palette = family_palette,
+                         layout = layout,
+                         remove_null = remove_null,
+                         alpha_edge = alpha_edge,
+                         edge_width_range = edge_width_range,
+                         edge_alpha_range = edge_alpha_range,
+                         node_label_size = node_label_size,
+                         legend_label_size  = node_label_title,
+                         ...)
 }

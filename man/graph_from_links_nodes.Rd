@@ -4,7 +4,7 @@
 \alias{graph_from_links_nodes}
 \title{Display a graph from a list of links and nodes}
 \usage{
-graph_from_links_nodes(network_data, main_title = "", ret = T,
+graph_from_links_nodes(network_data, main_title = "",
   node_type = c("point", "label"), node_label_title = T,
   family_palette = NULL, layout = "nicely", remove_null = T,
   alpha_edge = T, edge_width_range = c(0.2, 2),
@@ -15,8 +15,6 @@ graph_from_links_nodes(network_data, main_title = "", ret = T,
 \item{network_data}{(list of two) : links, nodes with the proper structure}
 
 \item{main_title}{(string, optional) : the title of the network}
-
-\item{ret}{(bool, default TRUE) : should the network graph and degree table be returned or directly displayed}
 
 \item{node_type}{: \code{point} (default) for the graph to display points and the label outside the point, or \code{label}
 to have a node which is the label itself (the text size will then be associated to the node degree)}
