@@ -9,7 +9,7 @@ Description: Displays a weighted undirected graph from an adjacency matrix.
     mutual information or maximal information coefficient.
     Based on my Master 1 internship in the Bordeaux Population Health center,
     mentored by Boris Hejblum and Cecilia Samieri.
-License: GNU GPLv3 + file LICENSE
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
