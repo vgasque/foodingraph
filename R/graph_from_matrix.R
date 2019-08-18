@@ -84,6 +84,6 @@ graph_from_matrix <- function(adjacency_matrix,
                          edge_width_range = edge_width_range,
                          edge_alpha_range = edge_alpha_range,
                          node_label_size = node_label_size,
-                         legend_label_size  = node_label_title,
+                         legend_label_size  = legend_label_size,
                          ...)
 }
