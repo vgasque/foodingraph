@@ -159,7 +159,7 @@ graph_from_links_nodes <- function(network_data,
 
     # Legend order
     guides(
-      fill = guide_legend(order = 1),
+      fill = guide_legend(order = 1, override.aes = list(size = 5)),
       size = guide_legend(order = 2),
       color = guide_legend(order = 3),
       alpha = guide_legend(order = 4),
