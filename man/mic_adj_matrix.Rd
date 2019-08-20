@@ -23,3 +23,8 @@ to the \code{minerva} package func # \code{cstats()}, but it seemed slower in my
 \examples{
 mic_adj_matrix(iris[,-5])
 }
+\references{
+Reshef, D. N., Y. A. Reshef, H. K. Finucane, S. R. Grossman, G. McVean, P. J. Turnbaugh,
+E. S. Lander, M. Mitzenmacher, and P. C. Sabeti. “Detecting Novel Associations in Large Data Sets.”
+Science 334, no. 6062 (December 16, 2011): 1518–24. https://doi.org/10.1126/science.1205438.
+}
