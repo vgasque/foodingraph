@@ -45,6 +45,9 @@ Default is 0.3 to 1.}
 
 \item{...}{: other parameters to pass to ggraph `create_layout`}
 }
+\value{
+a list of 3 : \code{igraph} : the igraph object, \code{net} the graph, \code{deg} the degree table.
+}
 \description{
 Given a list of links and nodes (e.g. from extract_links_nodes func)
 Uses igraph and ggraph to display the network plots

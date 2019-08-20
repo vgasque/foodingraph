@@ -27,3 +27,6 @@ It can be used by itself, but this function was created to be the
 \code{family_palette} argument when calling \code{display_graph_from_links_nodes()}
 The colors will be automatically added to the graph (nodes and legend)
 }
+\examples{
+family_palette(c("Fruits", "Vegetables", "Meats"))
+}

@@ -40,6 +40,7 @@ boot_cat_bin <- function(obs_data,
                          show_progress = T) {
 
   method <- match.arg(method)
+  message(paste("Performing boostrap inference with method : ", method))
 
   n_col_data <- ncol(obs_data)
   n_row_data <- nrow(obs_data)

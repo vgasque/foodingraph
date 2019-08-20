@@ -28,6 +28,7 @@
 #' @param node_label_size : the size of the node labels. Default is 3.
 #' @param legend_label_size : the size of the legend labels. Default is 10.
 #' @param ... : other parameters to pass to ggraph `create_layout`
+#' @return a list of 3 : \code{igraph} : the igraph object, \code{net} the graph, \code{deg} the degree table.
 #' @examples
 #' adj_matrix <- cor(iris[,-5])
 #' legend <- data.frame(name = colnames(iris[,-5]),

@@ -15,6 +15,8 @@
 #' @return A list of key and values.
 #'  - keys are the family names
 #'  - values are the color
+#' @examples
+#' family_palette(c("Fruits", "Vegetables", "Meats"))
 #' @importFrom viridis viridis
 #' @importFrom stats setNames
 #' @export
