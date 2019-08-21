@@ -14,10 +14,10 @@ between two variables given in the column and row names
 /!\ As this code is to draw undirected graphs, only the lower triangular part of
  adjacency matrix is used to extract the information}
 
-\item{legend}{: a data frame of columns in order :
-+ name, str : name of the node in the adjacency matrix, e.g. CRUDSAL_cat
-+ title, str : name of the node, e.g. Raw vegetables
-+ family, factor : the family the node belongs to, e.g. Vegetables}
+\item{legend}{: a data frame of columns in order :\cr
++ name, str : name of the node in the adjacency matrix, e.g. CRUDSAL_cat\cr
++ title, str : name of the node, e.g. Raw vegetables\cr
++ family, factor : (optional) the family the node belongs to, e.g. Vegetables}
 
 \item{threshold}{numeric) : a number defining the minimal threshold. If the weights are
 less than this threshold, they will be set to 0.}

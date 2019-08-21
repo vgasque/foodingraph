@@ -39,6 +39,7 @@
 #' graph_from_links_nodes(graph_iris, main_title = "Iris graph")
 #' @seealso \code{\link{graph_from_matrix}}
 #' @importFrom dplyr arrange desc
+#' @importFrom magrittr %>%
 #' @importFrom stringr str_wrap
 #' @importFrom viridis scale_fill_viridis
 #' @importFrom utils txtProgressBar setTxtProgressBar capture.output
@@ -70,7 +71,15 @@ graph_from_links_nodes <- function(network_data,
   node_type <- match.arg(node_type)
 
   # Format the node families text to regulate the legend size
-  network_data$nodes$family <- str_wrap(network_data$nodes$family, 30)
+  if (!is.null(network_data$nodes$family)) {
+    network_data$nodes$family <- str_wrap(network_data$nodes$family, 30)
+  }
+
+  # Add a "sign" column to the links
+  network_data$links <- network_data$links %>%
+    mutate(sign = ifelse(.data$weight > 0, "Positive", "Negative")) %>%
+    mutate(sign = factor(.data$sign, levels = c("Negative" = "Negative",
+                                                "Positive" = "Positive")))
 
   # Create the igraph object
   network_igraph <- graph_from_data_frame(d = network_data$links,

@@ -11,10 +11,10 @@
 #'    between two variables given in the column and row names
 #'    /!\ As this code is to draw undirected graphs, only the lower triangular part of
 #'     adjacency matrix is used to extract the information
-#' @param legend : a data frame of columns in order :
-#'     + name, str : name of the node in the adjacency matrix, e.g. CRUDSAL_cat
-#'     + title, str : name of the node, e.g. Raw vegetables
-#'     + family, factor : the family the node belongs to, e.g. Vegetables
+#' @param legend : a data frame of columns in order :\cr
+#'     + name, str : name of the node in the adjacency matrix, e.g. CRUDSAL_cat\cr
+#'     + title, str : name of the node, e.g. Raw vegetables\cr
+#'     + family, factor : (optional) the family the node belongs to, e.g. Vegetables
 #' @param threshold numeric) : a number defining the minimal threshold. If the weights are
 #'   less than this threshold, they will be set to 0.
 #' @param abs_threshold (bool) : should the threshold keep negative values, e.g. if \code{abs_threshold}
@@ -65,12 +65,10 @@ links_nodes_from_mat <- function(adjacency_matrix,
       mutate(weight = ifelse(.data$weight < !!threshold, 0, round(.data$weight, 3)))
   }
 
-  # It's admitted that the weights should be equal to the widths (checked w/ Boris & Cecilia)
+  # To represent the weights on the graph, we use the edges' widths
   links <- links %>%
     filter(.data$weight != 0) %>%
-    mutate(width = abs(.data$weight), sign = ifelse(.data$weight > 0, "Positive", "Negative")) %>%
-    mutate(sign = factor(.data$sign, levels = c("Negative" = "Negative",
-                                          "Positive" = "Positive")))
+    mutate(width = abs(.data$weight))
 
   nodes <- legend
   if (filter_nodes == T) {
@@ -81,6 +79,6 @@ links_nodes_from_mat <- function(adjacency_matrix,
 
   list(
     links = links,
-    nodes = legend
+    nodes = nodes
   )
 }
