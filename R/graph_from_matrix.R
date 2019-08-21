@@ -49,6 +49,13 @@
 #' legend <- data.frame(name = colnames(iris[,-5]),
 #'                      title = colnames(iris[,-5]))
 #' graph_from_matrix(adj_matrix, legend, main_title = "Iris graph")
+#' @references
+#' \enumerate{
+#' \item Csardi, Gabor, and Tamas Nepusz. “The Igraph Software Package for Complex Network Research.”
+#' InterJournal Complex Systems (2006): 1695.
+#' \item Pedersen, Thomas Lin. Ggraph: A Grammar of Graphics for Relational Data,
+#' n.d. https://ggraph.data-imaginist.com/.
+#' }
 #' @seealso \code{\link{graph_from_links_nodes}}
 #' @export
 graph_from_matrix <- function(adjacency_matrix,
