@@ -34,10 +34,12 @@
 #' @param layout (chr) : the layout to be used to construct the graph
 #' @param remove_null (bool) : should the nodes with 0 connections (degree 0) be removed from the graph.
 #'  default is TRUE.
-#' @param alpha_edge (bool) : should the edges have a transparent scale? In addition to the width scale.
+#' @param edge_alpha (bool) : should the edges have a transparent scale? In addition to the width scale.
+#' @param edge_color (list) : list of 2. The first element is the color of the negative edges, the second the
+#' positive. Default is \code{c("#6DBDE6", "#FF8C69")}.
 #' @param edge_width_range : range of the edges width. (default is 0.2 to 2)
-#' @param edge_alpha_range : if \code{alpha_edge} is TRUE, the range of the alpha values (between 0 and 1).
-#' Default is 0.3 to 1.
+#' @param edge_alpha_range : if \code{edge_alpha} is TRUE, the range of the alpha values (between 0 and 1).
+#' Default is 0.4 to 1.
 #' @param node_label_size : the size of the node labels. Default is 3.
 #' @param legend_label_size : the size of the legend labels. Default is 10.
 #' @param ... : other parameters to pass to ggraph `create_layout`
@@ -60,9 +62,10 @@ graph_from_matrix <- function(adjacency_matrix,
                               family_palette = NULL,
                               layout = "nicely",
                               remove_null = T,
-                              alpha_edge = T,
+                              edge_alpha = T,
+                              edge_color = c("#6DBDE6", "#FF8C69"),
                               edge_width_range = c(0.2,2),
-                              edge_alpha_range = c(0.3, 1),
+                              edge_alpha_range = c(0.4, 1),
                               node_label_size = 3,
                               legend_label_size  = 10,
                               ...) {
@@ -81,7 +84,8 @@ graph_from_matrix <- function(adjacency_matrix,
                          family_palette = family_palette,
                          layout = layout,
                          remove_null = remove_null,
-                         alpha_edge = alpha_edge,
+                         edge_alpha = edge_alpha,
+                         edge_color = edge_color,
                          edge_width_range = edge_width_range,
                          edge_alpha_range = edge_alpha_range,
                          node_label_size = node_label_size,

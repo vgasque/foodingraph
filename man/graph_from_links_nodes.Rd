@@ -7,9 +7,9 @@
 graph_from_links_nodes(network_data, main_title = "",
   node_type = c("point", "label"), node_label_title = T,
   family_palette = NULL, layout = "nicely", remove_null = T,
-  alpha_edge = T, edge_width_range = c(0.2, 2),
-  edge_alpha_range = c(0.3, 1), node_label_size = 3,
-  legend_label_size = 10, ...)
+  edge_alpha = T, edge_color = c("#6DBDE6", "#FF8C69"),
+  edge_width_range = c(0.2, 2), edge_alpha_range = c(0.4, 1),
+  node_label_size = 3, legend_label_size = 10, ...)
 }
 \arguments{
 \item{network_data}{(list of two) : links, nodes with the proper structure}
@@ -32,12 +32,15 @@ If NULL (default), the palette will be automatically generated using viridis}
 \item{remove_null}{(bool) : should the nodes with 0 connections (degree 0) be removed from the graph.
 default is TRUE.}
 
-\item{alpha_edge}{(bool) : should the edges have a transparent scale? In addition to the width scale.}
+\item{edge_alpha}{(bool) : should the edges have a transparent scale? In addition to the width scale.}
+
+\item{edge_color}{(list) : list of 2. The first element is the color of the negative edges, the second the
+positive. Default is \code{c("#6DBDE6", "#FF8C69")}.}
 
 \item{edge_width_range}{: range of the edges width. (default is 0.2 to 2)}
 
-\item{edge_alpha_range}{: if \code{alpha_edge} is TRUE, the range of the alpha values (between 0 and 1).
-Default is 0.3 to 1.}
+\item{edge_alpha_range}{: if \code{edge_alpha} is TRUE, the range of the alpha values (between 0 and 1).
+Default is 0.4 to 1.}
 
 \item{node_label_size}{: the size of the node labels. Default is 3.}
 
