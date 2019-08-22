@@ -81,7 +81,7 @@ boot_simulated_cat_bin <- function(type = c("cat", "bin", "bincat"),
     print(paste("Simulation", simu_no, ":", res_percentile[simu_no]))
   }
 
-  print("Mean of the percentiles :")
   mean_percentile <- mean(res_percentile)
+  print(paste("Mean of the percentiles:", mean_percentile))
   mean_percentile
 }
