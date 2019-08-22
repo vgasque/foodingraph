@@ -23,10 +23,14 @@ Imports:
   igraph,
   ggraph,
   minerva,
-  rlang
+  rlang,
+  grid
 Suggests:
+  knitr,
+  infotheo,
   minet,
-  infotheo
+VignetteBuilder:
+  knitr
 URL: https://github.com/vgasque/foodingraph/
 BugReports: https://github.com/vgasque/foodingraph/issues
 RoxygenNote: 6.1.1

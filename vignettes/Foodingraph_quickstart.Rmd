@@ -1,0 +1,115 @@
+---
+title: "Quick introduction to foodingraph"
+author: "Victor Gasque, Cecilia Samieri, Boris Hejblum"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Quick introduction to foodingraph}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width = 7, fig.height = 6, comment = "#>") 
+```
+
+```{r}
+library(foodingraph)
+```
+
+
+## Example data set
+```{r}
+# An example adjacency matrix
+adjacency_matrix <- matrix(c(
+#        A       B        C        D        E
+         0,    0.1,    0.12,    0.23,    0.54,   # A
+       0.1,      0,       0,   -0.36,    0.09,   # B
+      0.12,      0,       0, -0.4636,       0,   # C
+      0.23,  -0.36, -0.4636,       0,   0.023,   # D
+      0.54,   0.09,       0,   0.023,       0    # E
+), ncol = 5, byrow = T)
+
+# The legend for the graph
+legend <- data.frame(
+  name = c(         "A",       "B",        "C",      "D",        "E"),
+  title = c(        "Alcohol", "Biscuits", "Chips",  "Duck",     "Eel"),
+  family = factor(c("Alcohol", "Treats",   "Treats", "Poultry",  "Fish"))
+)
+
+colnames(adjacency_matrix) <- legend$name
+rownames(adjacency_matrix) <- legend$name
+```
+
+## Network visualization
+
+### Quick start: directly from the adjacency matrix
+```{r}
+graph1 <- graph_from_matrix(adjacency_matrix, legend, main_title = "My graph", layout = "graphopt")
+graph1
+```
+
+### Or from a list of links and nodes
+Useful to alter the links
+```{r}
+# Extract the links and nodes from the adjacency matrix
+links_nodes <- links_nodes_from_mat(adjacency_matrix, legend)
+  
+# Transform negative weights into positive ones
+links_nodes$links <- transform(links_nodes$links, weight = abs(weight))
+   
+# Display the graph
+graph2 <- graph_from_links_nodes(links_nodes, main_title = "My graph")
+graph2
+```
+
+### Save the graph in a file
+```{r eval=F}
+save_graph(graph1)
+```
+
+
+### Customization
+Many options and layouts exist to customize the graph.
+
+```{r message=F}
+library(ggplot2)
+
+custom1 <- graph_from_matrix(adjacency_matrix, legend, main_title = "Node label as name",
+                             layout = "graphopt", node_label_title = F, node_label_size = 5)
+custom2 <- graph_from_matrix(adjacency_matrix, legend, main_title = "Node type as label",
+                             layout = "graphopt", node_type = "label")
+custom3 <- graph_from_matrix(adjacency_matrix, legend, main_title = "Grid layout",
+                             layout = "grid", node_label_size = 5)
+custom4 <- graph_from_matrix(adjacency_matrix, legend, main_title = "Circle layout",
+                             layout = "circle", node_label_size = 5)
+```
+```{r eval=F}
+custom1$net
+custom2$net
+custom3$net
+custom4$net
+```
+
+```{r echo=F}
+# Cookbook for R, simplified here
+multiplot <- function(..., cols=2) {
+  library(grid)
+  plots <- list(...)
+  numPlots = length(plots)
+  layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                   ncol = cols, nrow = ceiling(numPlots/cols))
+  grid.newpage()
+  pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+  for (i in 1:numPlots) {
+    matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+    
+    print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                    layout.pos.col = matchidx$col))
+  }
+}
+
+multiplot(custom1$net + theme(legend.position="none"),
+          custom2$net + theme(legend.position="none"),
+          custom3$net + theme(legend.position="none"),
+          custom4$net + theme(legend.position="none"))
+```
+
