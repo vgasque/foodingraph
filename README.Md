@@ -1,5 +1,10 @@
 # foodingraph : food network inference
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/foodingraph)](https://cran.r-project.org/package=foodingraph)
+[![Travis-CI Build Status](https://travis-ci.org/vgasque/foodingraph.svg?branch=master)](https://travis-ci.org/vgasque/foodingraph)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/vgasque/foodingraph?branch=master&svg=true)](https://ci.appveyor.com/project/vgasque/foodingraph)
+[![Downloads](https://cranlogs.r-pkg.org/badges/foodingraph?color=blue)](https://www.r-pkg.org/pkg/foodingraph)
+
 A simple R package to infer food networks from categorical and binary variables.
 
 Displays a weighted undirected graph from an adjacency matrix.
