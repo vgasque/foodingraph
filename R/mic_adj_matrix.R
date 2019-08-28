@@ -25,7 +25,6 @@ mic_adj_matrix <- function(obs_data) {
   # Creating the adjacency matrix
   adj_matrix <- matrix(0, nrow = n_var, ncol = n_var)
   colnames(adj_matrix) <- rownames(adj_matrix) <- colnames(obs_data)
-  diag(adj_matrix) <- NA
 
   # For each pair of variables
   for (i in 1:n_var) {

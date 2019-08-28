@@ -135,10 +135,9 @@ inferred_adj_matrix <- boot_cat_bin(obs_data,
                                     show_progress = FALSE)
 
 # Print how many edges have been removed
-diag(adjacency_matrix) <- 0
-n_links_before <- (length(which(adjacency_matrix!=0))-ncol(obs_data))/2
-n_links_after <- (length(which(inferred_adj_matrix!=0))-ncol(obs_data))/2
-print(paste(n_links_before - n_links_after, "edges have been removed"))
+n_null_before <- (length(which(adjacency_matrix==0))-ncol(obs_data))/2
+n_null_after <- (length(which(inferred_adj_matrix==0))-ncol(obs_data))/2
+print(paste(n_null_after - n_null_before, "edges have been removed"))
 ```
 
 
