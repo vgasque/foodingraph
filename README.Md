@@ -26,6 +26,13 @@ From the infered adjacency matrix, the package can then display the graph using 
 
 See R documentation for more information.
 
+## How to use
+
+Two main functions are used to plot graphs : `graph_from_matrix()` and `graph_from_links_nodes()`.
+To infer the network, use `boot_cat_bin()`.
+
+For a quick start, see the R vignette `Foodingraph_quickstart`.
+For a comprehensive documentation, see the R documentation of the package.
 
 ## Authors information
 
