@@ -35,7 +35,7 @@
 #' which is a data frame of at least two columns : \code{name} (the name of the nodes
 #' in the adjacency matrix, e.g. CRUDSAL_cat) and \code{title} (the titles for each
 #' name, e.g. raw vegetables)\cr
-#' Optionnally, you can add a column \code{family} to specificy the nodes' families.
+#' Optionally, you can add a column \code{family} to specify the nodes' families.
 #' \item \code{\link{graph_from_links_nodes}} : create a graph from a list of nodes and
 #' links. This function needs two arguments : \bold{1.} the list of nodes and links,
 #' which should be the result from \code{\link{links_nodes_from_mat}} (if not, make

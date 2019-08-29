@@ -21,8 +21,9 @@
 #' @return The mean of the percentile values.
 #'
 #' @examples
-#' boot_simulated_cat_bin("cat", "mic")
-#'
+#' if(interactive()) {
+#'   boot_simulated_cat_bin("cat", "mic")
+#' }
 #' @references
 #' \enumerate{
 #' \item Reshef, D. N., Y. A. Reshef, H. K. Finucane, S. R. Grossman, G. McVean, P. J. Turnbaugh,

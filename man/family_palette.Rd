@@ -7,7 +7,7 @@
 family_palette(family)
 }
 \arguments{
-\item{family}{(list) : can be either the family colum from the legend table,
+\item{family}{(list) : can be either the family column from the legend table,
 or just a list of the families.
 In all cases, the parameter will be converted as a factor
 and sorted (alphabetically or numerically)

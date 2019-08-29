@@ -23,13 +23,13 @@ Displays a weighted undirected graph from an adjacency matrix. Can perform confi
 
 #### How it works
 
-From an adjacency matrix, the package can infer the network with confidence-interval (CI) bootstraps of the distribution of mutual information[^1] values or maximal information coefficents (MIC)[^2]for each pairwise association.
+From an adjacency matrix, the package can infer the network with confidence-interval (CI) bootstraps of the distribution of mutual information[^1] values or maximal information coefficients (MIC)[^2]for each pairwise association.
 The CI bootstrap calculated is compared to the CI bootstraps from simulated independent pairwise associations.
 The CI bootstrap from simulated independent pairwise variables is used to define a threshold of non-significance in the network. Our approach is to use a threshold for each pairwise variable type : two ordinal variables, two binary variables, one ordinal variable and one ordinal variable.
 
 For example, For each pairwise association, if the 99th percentile of the simulated CI is higher than the 1th percentile of the sample bootstrap distribution, the edge is removed.
 
-From the infered adjacency matrix, the package can then display the graph using `ggplot2`[^3], `igraph`[^4] and `ggraph`[^5].
+From the inferred adjacency matrix, the package can then display the graph using `ggplot2`[^3], `igraph`[^4] and `ggraph`[^5].
 
 See R documentation for more information.
 
@@ -116,7 +116,7 @@ thresh_ord_bin <- boot_simulated_cat_bin("bincat", method = "mic", size = 500)
 Now let's perform the CI bootstrap inference on the observed data.
 To do this, foodingraph needs a list of the ordinal (a.k.a. categorical) and binary variables, so it can accurately compare the correct threshold to the correct pairwise variables.
 
-As the computations can take some time, a progress bar is built into the fucntion. You cand deactivate it by setting the parameter `show_progress` to FALSE (function `boot_cat_bin`).
+As the computations can take some time, a progress bar is built into the function. You can deactivate it by setting the parameter `show_progress` to FALSE (function `boot_cat_bin`).
 *Recommended if the output is in a Rmarkdown document.*
 ```{r}
 

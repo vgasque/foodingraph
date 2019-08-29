@@ -16,13 +16,13 @@ mentored by Boris Hejblum and Cecilia Samieri.
 
 ## How it works
 
-From an adjacency matrix, the package can infer the network with confidence-interval (CI) bootstraps of the distribution of mutual information<sup>1</sup> values or maximal information coefficents<sup>2</sup> for each pairwise association.
+From an adjacency matrix, the package can infer the network with confidence-interval (CI) bootstraps of the distribution of mutual information<sup>1</sup> values or maximal information coefficients<sup>2</sup> for each pairwise association.
 The CI bootstrap calculated is compared to the CI bootstraps from simulated independent pairwise associations.
 The CI bootstrap from simulated independent pairwise variables is used to define a threshold of non-significance in the network. Our approach is to use a threshold for each pairwise variable type : two ordinal variables, two binary variables, one ordinal variable and one ordinal variable.
 
 For example, For each pairwise association, if the 99th percentile of the simulated CI is higher than the 1th percentile of the sample bootstrap distribution, the edge is removed.
 
-From the infered adjacency matrix, the package can then display the graph using `ggplot2`<sup>3</sup>, `igraph`<sup>4</sup> and `ggraph`<sup>5</sup>.
+From the inferred adjacency matrix, the package can then display the graph using `ggplot2`<sup>3</sup>, `igraph`<sup>4</sup> and `ggraph`<sup>5</sup>.
 
 See R documentation for more information.
 

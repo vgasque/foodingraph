@@ -37,8 +37,9 @@ of the bootstrap distribution of the chosen method : mutual information or the m
 information coefficient. The percentile method is used to calculate this interval.
 }
 \examples{
-boot_simulated_cat_bin("cat", "mic")
-
+if(interactive()) {
+  boot_simulated_cat_bin("cat", "mic")
+}
 }
 \references{
 \enumerate{

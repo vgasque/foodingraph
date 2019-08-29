@@ -3,3 +3,5 @@
 ^README.Md
 ^\.travis\.yml$
 ^appveyor\.yml$
+^cran-comments\.md$
+^CRAN-RELEASE$

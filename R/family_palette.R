@@ -7,7 +7,7 @@
 #' \code{family_palette} argument when calling \code{display_graph_from_links_nodes()}
 #' The colors will be automatically added to the graph (nodes and legend)
 #'
-#' @param family (list) : can be either the family colum from the legend table,
+#' @param family (list) : can be either the family column from the legend table,
 #'  or just a list of the families.
 #'  In all cases, the parameter will be converted as a factor
 #'  and sorted (alphabetically or numerically)
