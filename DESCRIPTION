@@ -15,6 +15,7 @@ LazyData: true
 Imports:
   dplyr,
   ggplot2,
+  cowplot,
   magrittr,
   stringr,
   tibble,
@@ -24,6 +25,7 @@ Imports:
   ggraph,
   minerva,
   rlang,
+  labeling,
   grid
 Suggests:
   knitr,
