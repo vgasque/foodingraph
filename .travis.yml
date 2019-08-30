@@ -6,4 +6,4 @@ cache: packages
 bioc_packages:
 - minet
 
-r_check_args: "--as-cran --timings""
+r_check_args: "--as-cran --timings"
