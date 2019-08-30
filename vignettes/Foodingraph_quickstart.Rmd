@@ -215,6 +215,37 @@ multiplot(custom1$net + theme(legend.position="none"),
           custom4$net + theme(legend.position="none"))
 ```
 
+### Compare graphs
+
+Foodingraph provides a useful graph comparison function, which harmonizes the graphs' weights and node degree sizes, in order to facilitate the visual comparison.
+
+First, let's generate a second graph.
+
+```{r}
+
+# New set of observation data
+obs_data_2 <- matrix(c(round(runif(78, 0, 13)), round(runif(26))), nrow = 13, ncol = 8)
+colnames(obs_data_2) <- colnames(obs_data)
+
+# Compute the MIC adjacency matrix
+adjacency_matrix_2 <- mic_adj_matrix(obs_data_2)
+
+graph2 <- graph_from_matrix(adjacency_matrix_2, legend, main_title = "My graph 2",
+                            layout = "graphopt")
+```
+
+Then let's compare the first graph and this one on a single, unified plot using `compare_graphs()`.
+```{r, fig.width = 7, fig.height=5}
+comp1_2 <- compare_graphs(graph1, graph2, position = "horizontal")
+comp1_2
+```
+
+You can also save this new graph. It will automatically have a bigger size.
+```{r eval=F}
+save_graph(comp1_2)
+```
+
+
 ## References
 
 [^1]: Meyer, Patrick E, Frédéric Lafitte, and Gianluca Bontempi. “Minet: A R/Bioconductor Package for Inferring Large Transcriptional Networks Using Mutual Information.” BMC Bioinformatics 9, no. 1 (December 2008). https://doi.org/10.1186/1471-2105-9-461.
