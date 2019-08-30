@@ -2,35 +2,42 @@
 #'
 #' Given a list of links and nodes (e.g. from extract_links_nodes func)
 #' Uses igraph and ggraph to display the network plots
-#' Must have the proper structure OR use \code{extract_links_nodes()}, which automatically returns
-#' this structure when given an adjacency matrix and its legend (see documentation for this function)
+#' Must have the proper structure OR use \code{extract_links_nodes()},
+#' which automatically returns this structure when given an adjacency
+#' matrix and its legend (see documentation for this function)
 #' network_data should be a list of 2 : edges, nodes
-#' For edges (data.frame) : from, to, weight, width, sign (of the width: neg/pos)
+#' For edges (data.frame) : from, to, weight, width, sign (of the weight: neg/pos)
 #' For nodes (data.frame) : name, title, family, family_color (optional)
 #'
 #' @param network_data (list of two) : links, nodes with the proper structure
 #' @param main_title (string, optional) : the title of the network
-#' @param node_type : \code{point} (default) for the graph to display points and the label outside the point, or \code{label}
-#' to have a node which is the label itself (the text size will then be associated to the node degree)
-#' @param node_label_title (bool, default F) : should the node labels be the names or title column?
+#' @param node_type : \code{point} (default) for the graph to display points and
+#' the label outside the point, or \code{label} to have a node which is the label
+#'  itself (the text size will then be associated to the node degree)
+#' @param node_label_title (bool, default F) : should the node labels be the
+#'  names or title column?
 #'    (e.g. names : CRUDSAL_cat, title : Raw vegetables)
-#' @param family_palette (list of key = value) : the keys are the family codes (from family column in the legend),
-#'  and the values are the corresponding colors. Can be generated using the \code{generate_family_palette()} func.
-#'  USEFUL if there is a need to compare multiple graphs of the same families, so the color is consistent.
+#' @param family_palette (list of key = value) : the keys are the family codes
+#'  (from family column in the legend), and the values are the corresponding
+#'  colors. Can be generated using the \code{\link{family_palette}} func.
+#'  USEFUL if there is a need to compare multiple graphs of the same families,
+#'  so the color is consistent.
 #'  If NULL (default), the palette will be automatically generated using viridis
 #' @param layout (chr) : the layout to be used to construct the graph
-#' @param remove_null (bool) : should the nodes with 0 connections (degree 0) be removed from the graph.
-#'  default is TRUE.
-#' @param edge_alpha (bool) : should the edges have a transparent scale? In addition to the width scale.
-#' @param edge_color (list) : list of 2. The first element is the color of the negative edges, the second the
-#' positive. Default is \code{c("#6DBDE6", "#FF8C69")}.
+#' @param remove_null (bool) : should the nodes with 0 connections (degree 0)
+#'  be removed from the graph. default is TRUE.
+#' @param edge_alpha (bool) : should the edges have a transparent scale?
+#' In addition to the width scale.
+#' @param edge_color (list) : list of 2. The first element is the color of the
+#' negative edges, the second the positive. Default is \code{c("#6DBDE6", "#FF8C69")}.
 #' @param edge_width_range : range of the edges width. (default is 0.2 to 2)
-#' @param edge_alpha_range : if \code{edge_alpha} is TRUE, the range of the alpha values (between 0 and 1).
-#' Default is 0.4 to 1.
+#' @param edge_alpha_range : if \code{edge_alpha} is TRUE, the range of the alpha
+#' values (between 0 and 1). Default is 0.4 to 1.
 #' @param node_label_size : the size of the node labels. Default is 3.
 #' @param legend_label_size : the size of the legend labels. Default is 10.
-#' @param ... : other parameters to pass to ggraph `create_layout`
-#' @return a list of 3 : \code{igraph} : the igraph object, \code{net} the graph, \code{deg} the degree table.
+#' @param ... : other parameters to pass to ggraph \code{create_layout}
+#' @return a list of 3 : \code{igraph} : the igraph object, \code{net} the graph,
+#' \code{deg} the degree table.
 #' @examples
 #' adj_matrix <- cor(iris[,-5])
 #' legend <- data.frame(name = colnames(iris[,-5]),
@@ -39,8 +46,8 @@
 #' graph_from_links_nodes(graph_iris, main_title = "Iris graph")
 #' @references
 #' \enumerate{
-#' \item Csardi, Gabor, and Tamas Nepusz. "The Igraph Software Package for Complex Network Research."
-#' InterJournal Complex Systems (2006): 1695.
+#' \item Csardi, Gabor, and Tamas Nepusz. "The Igraph Software Package
+#' for Complex Network Research." InterJournal Complex Systems (2006): 1695.
 #' \item Pedersen, Thomas Lin. Ggraph: A Grammar of Graphics for Relational Data,
 #' n.d.
 #' }

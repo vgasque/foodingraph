@@ -4,11 +4,12 @@
 #'
 #' Very useful when comparing graphs with the same families.
 #' It can be used by itself, but this function was created to be the
-#' \code{family_palette} argument when calling \code{display_graph_from_links_nodes()}
-#' The colors will be automatically added to the graph (nodes and legend)
+#' \code{family_palette} argument when calling
+#' \code{display_graph_from_links_nodes()} The colors will be
+#' automatically added to the graph (nodes and legend)
 #'
-#' @param family (list) : can be either the family column from the legend table,
-#'  or just a list of the families.
+#' @param family (list) : can be either the family column from the
+#' legend table, or just a list of the families.
 #'  In all cases, the parameter will be converted as a factor
 #'  and sorted (alphabetically or numerically)
 #'  Only its unique values are necessary.

@@ -8,27 +8,32 @@ links_nodes_from_mat(adjacency_matrix, legend, threshold = 0,
   abs_threshold = T, filter_nodes = T)
 }
 \arguments{
-\item{adjacency_matrix}{: a matrix of size n x n, each element being an number
-explaining the relationship e.g. coefficient, information
+\item{adjacency_matrix}{: a matrix of size n x n, each element being
+a number explaining the relationship e.g. coefficient, information
 between two variables given in the column and row names
-/!\ As this code is to draw undirected graphs, only the lower triangular part of
- adjacency matrix is used to extract the information}
+/!\ As this code is to draw undirected graphs, only the lower
+triangular part of adjacency matrix is used to extract the
+information.}
 
-\item{legend}{: a data frame of columns in order :\cr
-+ name, str : name of the node in the adjacency matrix, e.g. CRUDSAL_cat\cr
-+ title, str : name of the node, e.g. Raw vegetables\cr
-+ family, factor : (optional) the family the node belongs to, e.g. Vegetables}
+\item{legend}{: a data frame of columns in order :
+1) name, str : name of the node in the adjacency matrix, e.g.
+CRUDSAL_cat
+2) title, str : name of the node, e.g. Raw vegetables
+3) family, factor : (optional) the family the node belongs to,
+e.g. Vegetables}
 
-\item{threshold}{numeric) : a number defining the minimal threshold. If the weights are
-less than this threshold, they will be set to 0.}
+\item{threshold}{numeric) : a number defining the minimal threshold.
+If the weights are less than this threshold, they will be set to 0.}
 
-\item{abs_threshold}{(bool) : should the threshold keep negative values, e.g. if \code{abs_threshold}
-is set to \code{TRUE}, and threshold is set to 0.1, all weights between -0.1 and 0.1 will be set to 0}
+\item{abs_threshold}{(bool) : should the threshold keep negative values,
+e.g. if \code{abs_threshold} is set to \code{TRUE}, and threshold is set
+to 0.1, all weights between -0.1 and 0.1 will be set to 0}
 
-\item{filter_nodes}{(bool) : should the variables not in the adjacency matrix be displayed on the graph?
-Default is TRUE
-CAREFUL : if set to \code{TRUE}, be sure to have the same colors in the family legend
-of the graphs. A fixed palette can be set using the \code{family_palette()} func.}
+\item{filter_nodes}{(bool) : should the variables not in the adjacency
+matrix be displayed on the graph? Default is TRUE
+CAREFUL : if set to \code{TRUE}, be sure to have the same colors in the
+family legend of the graphs. A fixed palette can be set using the
+\code{\link{family_palette}} func.}
 }
 \value{
 A list of two data frames : links and nodes.
@@ -37,7 +42,8 @@ A list of two data frames : links and nodes.
 From an adjacency matrix, extracts two data.frames/tibbles
 \enumerate{
   \item Links. columns : from, to, with, weight
-  \item Nodes. columns : name, title. name corresponds to the names used in 'from' and 'to'
+  \item Nodes. columns : name, title. name corresponds to the names
+   used in 'from' and 'to'
 }
 }
 \examples{

@@ -1,19 +1,22 @@
 #' Confidence-interval bootstraps on simulated independent variables
 #'
-#' Create a defined number of simulated independent random variables of a given \code{size}
-#' according to \code{type} : 2 ordinal variables, 2 binary variables,
-#' 1 binary and 1 ordinal variable.
-#' A number of bootstraps are then performed on the sample to calculate a confidence interval
-#' of the bootstrap distribution of the chosen method : mutual information or the maximal
-#' information coefficient. The percentile method is used to calculate this interval.
+#' Create a defined number of simulated independent random variables of
+#' a given \code{size} according to \code{type} : 2 ordinal variables,
+#' 2 binary variables, 1 binary and 1 ordinal variable.
+#' A number of bootstraps are then performed on the sample to calculate
+#' a confidence interval of the bootstrap distribution of the chosen method:
+#' mutual information or the maximal information coefficient.
+#' The percentile method is used to calculate this interval.
 #'
-#' @param type : the type of the simulated variables: \code{cat} is for 2 ordinal variables,
-#'  \code{bin} is for 2 binary variables, \code{bincat} is for 1 binary and 1 ordinal variable.
-#' @param method : the method used to calculate the association : mutual information (\code{mi}),
-#'  or the maximal information coefficient.
-#' @param simu : the number of simulated pairs of variables. For each pair, the confidence-interval
-#'  bootstrap is calculated from the bootstrap distribution of the MI/MIC of between the two pairs.
-#'  At the end of the program, the mean of the chose percentile is given. Default is 10.
+#' @param type : the type of the simulated variables: \code{cat} is for
+#'  2 ordinal variables, \code{bin} is for 2 binary variables, \code{bincat}
+#'  is for 1 binary and 1 ordinal variable.
+#' @param method : the method used to calculate the association : mutual
+#' information (\code{mi}), or the maximal information coefficient (\code{mic}).
+#' @param simu : the number of simulated pairs of variables. For each pair,
+#' the confidence-interval bootstrap is calculated from the bootstrap distribution
+#' of the MI/MIC of between the two pairs. At the end of the program, the mean of
+#' the chosen percentile is given. Default is 10.
 #' @param boots : the number of bootstraps per simulation. Default is 5000.
 #' @param size : the size of the sample. Default is 500.
 #' @param percentile : the percentile kept. Default is 0.99 (the 99th percentile).
@@ -26,12 +29,13 @@
 #' }
 #' @references
 #' \enumerate{
-#' \item Reshef, D. N., Y. A. Reshef, H. K. Finucane, S. R. Grossman, G. McVean, P. J. Turnbaugh,
-#' E. S. Lander, M. Mitzenmacher, and P. C. Sabeti. "Detecting Novel Associations in Large Data Sets."
+#' \item Reshef, D. N., Y. A. Reshef, H. K. Finucane, S. R. Grossman, G. McVean,
+#' P. J. Turnbaugh, E. S. Lander, M. Mitzenmacher, and P. C. Sabeti.
+#' "Detecting Novel Associations in Large Data Sets."
 #' Science 334, no. 6062 (December 16, 2011): 1518_24.
-#' \item Meyer, Patrick E, Frederic Lafitte, and Gianluca Bontempi. "Minet: A R_Bioconductor Package
-#' for Inferring Large Transcriptional Networks Using Mutual Information." BMC Bioinformatics 9,
-#' no. 1 (December 2008).
+#' \item Meyer, Patrick E, Frederic Lafitte, and Gianluca Bontempi.
+#' "Minet: A R_Bioconductor Package for Inferring Large Transcriptional Networks
+#' Using Mutual Information." BMC Bioinformatics 9, no. 1 (December 2008).
 #' }
 #'
 #' @importFrom stats rbinom rmultinom runif

@@ -5,28 +5,37 @@
 #' for each pairwise association.
 #' \enumerate{
 #'   \item Computes the MI or MIC for each pairwise association.
-#'   \item Performs a bootstrap (of `boots` samples), and store each pairwise association
-#'   \item Calculate the 1th percentile for each pairwise association from the bootstrap distribution
-#'   \item If the percentile is inferior to the threshold of the corresponding pairwise variable type,
-#'    then the MI or MIC is set to 0.
+#'   \item Performs a bootstrap (of \code{boots} samples), and store
+#'   each pairwise association
+#'   \item Calculate the 1th percentile for each pairwise association
+#'   from the bootstrap distribution
+#'   \item If the percentile is inferior to the threshold of the
+#'   corresponding pairwise variable type, then the MI or MIC is set to 0.
 #' }
 #'
 #' @param obs_data (data.frame or matrix) : a dataset which rows are
 #'  observations and columns the variables.
 #' @param list_cat_var  : list of the categorical variables of the dataset
 #' @param list_bin_var : list of the binary variables of the dataset
-#' @param threshold_bin : the threshold to apply to binary pairwise associations
-#' @param threshold_cat : the threshold to apply to categorical pairwise associations
-#' @param threshold_bin_cat : to apply to a pairwise association between a binary and
-#'  a categorical variable
-#' @param method : the method to use to compute the adjacency matrix ("mi" or "mic").
-#'  If "mi", uses mutual information package \code{minet}, and Miller-Madow estimator.
-#'  If "mic", uses maximal information coefficient from \code{minerva} package function \code{cstats()}
+#' @param threshold_bin : the threshold to apply to binary pairwise
+#' associations
+#' @param threshold_cat : the threshold to apply to categorical pairwise
+#' associations
+#' @param threshold_bin_cat : to apply to a pairwise association between
+#'  a binary and a categorical variable
+#' @param method : the method to use to compute the adjacency matrix
+#' ("mi" or "mic").
+#' If "mi", uses mutual information package \code{minet},
+#' and Miller-Madow estimator.
+#' If "mic", uses maximal information coefficient from \code{minerva}
+#' package function \code{cstats()}
 #' @param boots : number of bootstraps (default 5000)
-#' @param show_progress : if TRUE, prints the percentage of completion to keep track of the algorithm's progress.
+#' @param show_progress : if TRUE, prints the percentage of completion to
+#'  keep track of the algorithm's progress.
 #'  Default is TRUE. Recommended to FALSE for RMarkdown files.
 #'
-#' @return The inferred adjacency matrix. All bootstrap 1th percentile values of each pairwise association
+#' @return The inferred adjacency matrix. All bootstrap 1th percentile
+#' values of each pairwise association
 #' inferior to their predefined thresholds will be set to 0.
 #' @export
 boot_cat_bin <- function(obs_data,
@@ -103,12 +112,16 @@ boot_cat_bin <- function(obs_data,
 
       quantile_ij <- quantile(adj_matrix_star[i,j,], 0.01)
 
-      if (colnames_data[i] %in% list_cat_var && colnames_data[j] %in% list_cat_var) {
+      if (colnames_data[i] %in% list_cat_var &&
+          colnames_data[j] %in% list_cat_var) {
         # 2 ordinal variables
         adj_matrix[i,j] <- ifelse(quantile_ij > threshold_cat, adj_matrix[i,j], 0)
-      } else if (colnames_data[i] %in% list_bin_var && colnames_data[j] %in% list_bin_var) {
+
+      } else if (colnames_data[i] %in% list_bin_var &&
+                 colnames_data[j] %in% list_bin_var) {
         # 2 binary variables
         adj_matrix[i,j] <- ifelse(quantile_ij > threshold_bin, adj_matrix[i,j], 0)
+
       } else {
         # 1 binary variable and 1 ordinal variable
         adj_matrix[i,j] <- ifelse(quantile_ij > threshold_bin_cat, adj_matrix[i,j], 0)

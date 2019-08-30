@@ -16,24 +16,31 @@ observations and columns the variables.}
 
 \item{list_bin_var}{: list of the binary variables of the dataset}
 
-\item{threshold_bin}{: the threshold to apply to binary pairwise associations}
+\item{threshold_bin}{: the threshold to apply to binary pairwise
+associations}
 
-\item{threshold_cat}{: the threshold to apply to categorical pairwise associations}
+\item{threshold_cat}{: the threshold to apply to categorical pairwise
+associations}
 
-\item{threshold_bin_cat}{: to apply to a pairwise association between a binary and
-a categorical variable}
+\item{threshold_bin_cat}{: to apply to a pairwise association between
+a binary and a categorical variable}
 
-\item{method}{: the method to use to compute the adjacency matrix ("mi" or "mic").
-If "mi", uses mutual information package \code{minet}, and Miller-Madow estimator.
-If "mic", uses maximal information coefficient from \code{minerva} package function \code{cstats()}}
+\item{method}{: the method to use to compute the adjacency matrix
+("mi" or "mic").
+If "mi", uses mutual information package \code{minet},
+and Miller-Madow estimator.
+If "mic", uses maximal information coefficient from \code{minerva}
+package function \code{cstats()}}
 
 \item{boots}{: number of bootstraps (default 5000)}
 
-\item{show_progress}{: if TRUE, prints the percentage of completion to keep track of the algorithm's progress.
+\item{show_progress}{: if TRUE, prints the percentage of completion to
+keep track of the algorithm's progress.
 Default is TRUE. Recommended to FALSE for RMarkdown files.}
 }
 \value{
-The inferred adjacency matrix. All bootstrap 1th percentile values of each pairwise association
+The inferred adjacency matrix. All bootstrap 1th percentile
+values of each pairwise association
 inferior to their predefined thresholds will be set to 0.
 }
 \description{
@@ -42,9 +49,11 @@ the mutual information or maximal information coefficient (MIC)
 for each pairwise association.
 \enumerate{
   \item Computes the MI or MIC for each pairwise association.
-  \item Performs a bootstrap (of `boots` samples), and store each pairwise association
-  \item Calculate the 1th percentile for each pairwise association from the bootstrap distribution
-  \item If the percentile is inferior to the threshold of the corresponding pairwise variable type,
-   then the MI or MIC is set to 0.
+  \item Performs a bootstrap (of \code{boots} samples), and store
+  each pairwise association
+  \item Calculate the 1th percentile for each pairwise association
+  from the bootstrap distribution
+  \item If the percentile is inferior to the threshold of the
+  corresponding pairwise variable type, then the MI or MIC is set to 0.
 }
 }

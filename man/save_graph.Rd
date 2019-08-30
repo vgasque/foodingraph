@@ -10,21 +10,24 @@ save_graph(graph, filename = NULL, width = NULL, height = NULL,
 \arguments{
 \item{graph}{: the graph}
 
-\item{filename}{(optional) : the name of the file. Default is the igraph unique ID in a .png format}
+\item{filename}{(optional) : the name of the file. Default is the
+igraph unique ID in a .png format}
 
-\item{width}{(optional) : width of the image in cm. Default is 25 cm for a single graph or
-a comparison in a vertical position. For a comparison in an horizontal position, 40cm.}
+\item{width}{(optional) : width of the image in cm. Default is 25 cm
+for a single graph or a comparison in a vertical position.
+For a comparison in an horizontal position, 40cm.}
 
-\item{height}{(optional) : height of the image in cm. Default is 20 cm for a single graph, 25cm for
-a comparison in an horizontal position.For a comparison in a vertical position, 40cm.}
+\item{height}{(optional) : height of the image in cm. Default is 20 cm
+for a single graph, 25cm for a comparison in an horizontal position.
+For a comparison in a vertical position, 40cm.}
 
 \item{dpi}{(optional) : the resolution of the image in dpi. Default is 300}
 
 \item{...}{: other parameters to pass to the \code{ggsave} ggplot2 function}
 }
 \description{
-Save the graph generated from \code{graph_from_matrix()} or \code{graph_from_links_nodes()}
-or \code{compare_graphs}.
+Save the graph generated from \code{graph_from_matrix()} or
+\code{graph_from_links_nodes()} or \code{compare_graphs}.
 }
 \examples{
 adj_matrix <- cor(iris[,-5])
