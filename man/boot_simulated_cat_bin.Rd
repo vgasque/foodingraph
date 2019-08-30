@@ -44,10 +44,10 @@ if(interactive()) {
 \references{
 \enumerate{
 \item Reshef, D. N., Y. A. Reshef, H. K. Finucane, S. R. Grossman, G. McVean, P. J. Turnbaugh,
-E. S. Lander, M. Mitzenmacher, and P. C. Sabeti. “Detecting Novel Associations in Large Data Sets.”
-Science 334, no. 6062 (December 16, 2011): 1518–24. https://doi.org/10.1126/science.1205438.
-\item Meyer, Patrick E, Frédéric Lafitte, and Gianluca Bontempi. “Minet: A R/Bioconductor Package
-for Inferring Large Transcriptional Networks Using Mutual Information.” BMC Bioinformatics 9,
+E. S. Lander, M. Mitzenmacher, and P. C. Sabeti. "Detecting Novel Associations in Large Data Sets."
+Science 334, no. 6062 (December 16, 2011): 1518\-24. https://doi.org/10.1126/science.1205438.
+\item Meyer, Patrick E, Frederic Lafitte, and Gianluca Bontempi. "Minet: A\/R Bioconductor Package
+for Inferring Large Transcriptional Networks Using Mutual Information." BMC Bioinformatics 9,
 no. 1 (December 2008). https://doi.org/10.1186/1471-2105-9-461.
 }
 }
