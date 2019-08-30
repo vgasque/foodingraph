@@ -54,7 +54,7 @@
 #' \item Csardi, Gabor, and Tamas Nepusz. "The Igraph Software Package for Complex Network Research."
 #' InterJournal Complex Systems (2006): 1695.
 #' \item Pedersen, Thomas Lin. Ggraph: A Grammar of Graphics for Relational Data,
-#' n.d. https://ggraph.data-imaginist.com/.
+#' n.d.
 #' }
 #' @seealso \code{\link{graph_from_links_nodes}}
 #' @export
