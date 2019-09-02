@@ -45,9 +45,12 @@ save_graph <- function(graph,
       width <- 40
       height <- 25
     } else {
+      graph <- graph$net
       width <- 25
       height <- 20
     }
+  } else if (inherits(graph, "foodingraph")) {
+    graph <- graph$net
   }
 
   # Is filename is not given, uses the igraph ID
@@ -55,5 +58,5 @@ save_graph <- function(graph,
                      paste0("graph_", graph_id(graph$igraph), ".png"),
                      filename)
 
-  ggsave(filename, graph$net, width = width, height = height, units = "cm", dpi = dpi, ...)
+  ggsave(filename, graph, width = width, height = height, units = "cm", dpi = dpi, ...)
 }
