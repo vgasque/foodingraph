@@ -26,8 +26,9 @@ For a comparison in a vertical position, 40cm.}
 \item{...}{: other parameters to pass to the \code{ggsave} ggplot2 function}
 }
 \description{
-Save the graph generated from \code{graph_from_matrix()} or
-\code{graph_from_links_nodes()} or \code{compare_graphs}.
+Save the graph generated from \code{\link{graph_from_matrix}}
+or \code{\link{graph_from_links_nodes}} or
+\code{\link{compare_graphs}}.
 }
 \examples{
 adj_matrix <- cor(iris[,-5])

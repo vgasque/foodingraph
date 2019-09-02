@@ -1,7 +1,8 @@
 #' Save graph
 #'
-#' Save the graph generated from \code{graph_from_matrix()} or
-#' \code{graph_from_links_nodes()} or \code{compare_graphs}.
+#' Save the graph generated from \code{\link{graph_from_matrix}}
+#' or \code{\link{graph_from_links_nodes}} or
+#' \code{\link{compare_graphs}}.
 #'
 #' @param graph : the graph
 #' @param filename (optional) : the name of the file. Default is the
