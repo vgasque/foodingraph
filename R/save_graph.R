@@ -30,8 +30,11 @@ save_graph <- function(graph,
                        dpi = 300,
                        ...) {
 
-  if (is.null(graph$igraph) || is.null(graph$net)) {
-    stop("Use graphs created by graph_from_matrix() or graph_from_links_nodes(). Or use ggsave()")
+  if ( !inherits(graph, "foodingraph") ||
+       !inherits(graph, "foodingraph_vertical") ||
+       !inherits(graph, "foodingraph_horizontal")) {
+    stop("Use graphs created by graph_from_matrix() or graph_from_links_nodes()
+         or compare_graphs(). For other situations, use ggsave()")
   }
 
   if (is.null(width) || is.null(height)) {

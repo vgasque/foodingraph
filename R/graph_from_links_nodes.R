@@ -205,9 +205,12 @@ graph_from_links_nodes <- function(network_data,
                 plot_margin = margin(15, 15, 15, 15)
     )
 
-  list(
-      igraph = network_igraph,
-      net =  net,
-      deg = deg_table
+  ret <- list(
+    igraph = network_igraph,
+    net =  net,
+    deg = deg_table
   )
+
+  class(ret) <- c(class(ret), "foodingraph")
+  ret
 }
