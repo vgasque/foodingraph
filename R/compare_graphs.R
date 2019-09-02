@@ -19,6 +19,10 @@
 #' R will do its best to be around this number.
 #' @param n_weights : the number of weights to be displayed in the legend.
 #' R will do its best to be around this number.
+#' @param edge_width_range : range of the edges width (default is 0.2 to 2).
+#' @param edge_alpha_range : if \code{edge_alpha} is TRUE, the range of the alpha
+#' values (between 0 and 1). Default is 0.4 to 1.
+#' @param node_size_range : range of the node sizes. (default is 1 to 10)
 #' @param unique_legend : should there be a unique legend (default is TRUE)
 #' BE CAREFUL to have the same family colors if you use families/
 #'
@@ -35,6 +39,9 @@ compare_graphs <- function(graph1,
                            position = c("vertical", "horizontal"),
                            n_nodes = 5,
                            n_weights = 5,
+                           edge_width_range = c(0.2,2),
+                           edge_alpha_range = c(0.4, 1),
+                           node_size_range = c(1,10),
                            unique_legend = TRUE) {
 
   if (is.null(graph1$igraph) || is.null(graph1$net) || is.null(graph1$deg) ||
@@ -86,14 +93,17 @@ compare_graphs <- function(graph1,
   graph1$net <- suppressMessages(
     graph1$net +
       # Edge width and alpha
-      scale_edge_alpha_continuous(name = "Edge weight", range = c(0.4,1),
+      scale_edge_alpha_continuous(name = "Edge weight",
+                                  range = edge_alpha_range,
                                   breaks = breaks_weights,
                                   limits = range_weights) +
-      scale_edge_width_continuous(name = "Edge weight", range = c(0.2,2),
+      scale_edge_width_continuous(name = "Edge weight",
+                                  range = edge_width_range,
                                   breaks = breaks_weights,
                                   limits = range_weights) +
       # Node degree
-      scale_size_continuous(name = "Node degrees", range = c(1,10),
+      scale_size_continuous(name = "Node degrees",
+                            range = node_size_range,
                             breaks = breaks_degrees,
                             limits = range_degrees)
   )
@@ -101,14 +111,17 @@ compare_graphs <- function(graph1,
   graph2$net <- suppressMessages(
     graph2$net +
       # Edge width and alpha
-      scale_edge_alpha_continuous(name = "Edge weight", range = c(0.4,1),
+      scale_edge_alpha_continuous(name = "Edge weight",
+                                  range = edge_alpha_range,
                                   breaks = breaks_weights,
                                   limits = range_weights) +
-      scale_edge_width_continuous(name = "Edge weight", range = c(0.2,2),
+      scale_edge_width_continuous(name = "Edge weight",
+                                  range = edge_width_range,
                                   breaks = breaks_weights,
                                   limits = range_weights) +
       # Node degree
-      scale_size_continuous(name = "Node degrees", range = c(1,10),
+      scale_size_continuous(name = "Node degrees",
+                            range = node_size_range,
                             breaks = breaks_degrees,
                             limits = range_degrees)
   )
@@ -117,7 +130,7 @@ compare_graphs <- function(graph1,
   # PART 4 : Arrange the graphs on a grid
   #-----------
 
-  
+
   if (unique_legend == TRUE && position == "vertical") {
     # Case 1 : unique legend, graphs compared vertically
     final_graph <- plot_grid(
@@ -129,8 +142,8 @@ compare_graphs <- function(graph1,
       rel_heights = c(1, 1, 0.3),
       labels = c(titles[1], "", titles[2])
     )
-    
-    # Retrieve the legend 
+
+    # Retrieve the legend
     legend_plot <- get_legend(
       graph1$net +
         theme(
@@ -143,7 +156,7 @@ compare_graphs <- function(graph1,
           override.aes = list(size = 5))
         )
     )
-    
+
     # Add the legend to the graphs grid
     # 2.3 is the sum of the relative heights
     final_graph <- final_graph + draw_grob(legend_plot, 0, 0, 1, .3/2.3)
@@ -159,10 +172,10 @@ compare_graphs <- function(graph1,
       rel_widths = c(1, 0.3, 1),
       labels = c(titles[1], "", titles[2])
     )
-    
+
     # Retrieve the legend
     legend_plot <- get_legend(graph1$net)
-    
+
     # Add the legend to the graphs grid
     # 2.3 if the sum of the relative widths
     final_graph <- final_graph + draw_grob(legend_plot, 1/2.3, 0, .3/2.3, 1)
@@ -182,8 +195,8 @@ compare_graphs <- function(graph1,
   # Define classes : useful for save_graph()
   class_pos <- ifelse(position == "vertical", "foodingraph_vertical",
                       "foodingraph_horizontal")
-  
+
   class(final_graph) <- c(class(final_graph), class_pos)
-  
+
   final_graph
 }
