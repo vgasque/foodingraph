@@ -4,7 +4,7 @@
 \alias{save_graph}
 \title{Save graph}
 \usage{
-save_graph(graph, filename = "foodingraph_\%03d\%.png", width = NULL,
+save_graph(graph, filename = "foodingraph_\%03d.png", width = NULL,
   height = NULL, dpi = 300, ...)
 }
 \arguments{
