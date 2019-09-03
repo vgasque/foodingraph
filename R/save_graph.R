@@ -5,8 +5,8 @@
 #' \code{\link{compare_graphs}}.
 #'
 #' @param graph : the graph
-#' @param filename (optional) : the name of the file. Default is the
-#' igraph unique ID in a .png format
+#' @param filename (optional) : the name of the file and format.
+#' Default is "foodingraph_*.png".
 #' @param width (optional) : width of the image in cm. Default is 25 cm
 #' for a single graph or a comparison in a vertical position.
 #' For a comparison in an horizontal position, 40cm.
@@ -25,7 +25,7 @@
 #' @importFrom igraph graph_id
 #' @export
 save_graph <- function(graph,
-                       filename = NULL,
+                       filename = "foodingraph_%03d%.png",
                        width = NULL,
                        height = NULL,
                        dpi = 300,
@@ -53,11 +53,6 @@ save_graph <- function(graph,
   } else if (inherits(graph, "foodingraph")) {
     graph <- graph$net
   }
-
-  # Is filename is not given, uses the igraph ID
-  filename <- ifelse(is.null(filename),
-                     paste0("graph_", graph_id(graph$igraph), ".png"),
-                     filename)
 
   ggsave(filename, graph, width = width, height = height, units = "cm", dpi = dpi, ...)
 }

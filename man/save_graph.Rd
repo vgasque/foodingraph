@@ -4,14 +4,14 @@
 \alias{save_graph}
 \title{Save graph}
 \usage{
-save_graph(graph, filename = NULL, width = NULL, height = NULL,
-  dpi = 300, ...)
+save_graph(graph, filename = "foodingraph_\%03d\%.png", width = NULL,
+  height = NULL, dpi = 300, ...)
 }
 \arguments{
 \item{graph}{: the graph}
 
-\item{filename}{(optional) : the name of the file. Default is the
-igraph unique ID in a .png format}
+\item{filename}{(optional) : the name of the file and format.
+Default is "foodingraph_*.png".}
 
 \item{width}{(optional) : width of the image in cm. Default is 25 cm
 for a single graph or a comparison in a vertical position.

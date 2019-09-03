@@ -5,7 +5,9 @@
 \title{Compare two graphs}
 \usage{
 compare_graphs(graph1, graph2, titles = NULL, position = c("vertical",
-  "horizontal"), n_nodes = 5, n_weights = 5, unique_legend = TRUE)
+  "horizontal"), n_nodes = 5, n_weights = 5,
+  edge_width_range = c(0.2, 2), edge_alpha_range = c(0.4, 1),
+  node_size_range = c(1, 10), unique_legend = TRUE)
 }
 \arguments{
 \item{graph1}{: the first graph}
@@ -24,6 +26,13 @@ R will do its best to be around this number.}
 
 \item{n_weights}{: the number of weights to be displayed in the legend.
 R will do its best to be around this number.}
+
+\item{edge_width_range}{: range of the edges width (default is 0.2 to 2).}
+
+\item{edge_alpha_range}{: if \code{edge_alpha} is TRUE, the range of the alpha
+values (between 0 and 1). Default is 0.4 to 1.}
+
+\item{node_size_range}{: range of the node sizes. (default is 1 to 10)}
 
 \item{unique_legend}{: should there be a unique legend (default is TRUE)
 BE CAREFUL to have the same family colors if you use families/}
