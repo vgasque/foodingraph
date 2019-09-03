@@ -25,7 +25,7 @@
 #' @importFrom igraph graph_id
 #' @export
 save_graph <- function(graph,
-                       filename = "foodingraph_%03d%.png",
+                       filename = "foodingraph_%03d.png",
                        width = NULL,
                        height = NULL,
                        dpi = 300,
