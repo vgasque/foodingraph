@@ -2,7 +2,10 @@ Package: foodingraph
 Type: Package
 Title: Food Network Inference and Visualization
 Version: 0.1.0
-Author: Victor Gasque, Boris Hejblum, Cecilia Samieri
+Authors@R: c(
+    person("Victor", "Gasque", email = "victor.gasque@protonmail.com", role = c("cre", "aut")),
+    person("Boris", "Hejblum", email = "boris.hejblum@u-bordeaux.fr", role = "aut"),
+    person("Cecilia", "Samieri", email = "cecilia.samieri@u-bordeaux.fr", role = "aut"))
 Maintainer: Victor Gasque <victor.gasque@protonmail.com>
 Description: Displays a weighted undirected graph from an adjacency matrix.
     Can perform confidence-interval bootstrap inference with
