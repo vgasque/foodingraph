@@ -3,15 +3,15 @@ Type: Package
 Title: Food Network Inference and Visualization
 Version: 0.1.0
 Authors@R: c(
-    person("Victor", "Gasque", email = "victor.gasque@protonmail.com", role = c("cre", "aut")),
-    person("Boris", "Hejblum", email = "boris.hejblum@u-bordeaux.fr", role = "aut"),
-    person("Cecilia", "Samieri", email = "cecilia.samieri@u-bordeaux.fr", role = "aut"))
+    person("Victor", "Gasque", "victor.gasque@protonmail.com", c("cre", "aut")),
+    person("Boris", "Hejblum", "boris.hejblum@u-bordeaux.fr", "aut"),
+    person("Cecilia", "Samieri", "cecilia.samieri@u-bordeaux.fr", "aut"))
 Maintainer: Victor Gasque <victor.gasque@protonmail.com>
-Description: Displays a weighted undirected graph from an adjacency matrix.
-    Can perform confidence-interval bootstrap inference with
-    mutual information or maximal information coefficient.
+Description: Displays a weighted undirected food graph from an adjacency matrix.
+    Can perform confidence-interval bootstrap inference with mutual information
+    or maximal information coefficient.
     Based on my Master 1 internship at the Bordeaux Population Health center.
-License: GPL-3 + file LICENSE
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:
