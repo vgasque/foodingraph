@@ -10,8 +10,7 @@ Maintainer: Victor Gasque <victor.gasque@protonmail.com>
 Description: Displays a weighted undirected graph from an adjacency matrix.
     Can perform confidence-interval bootstrap inference with
     mutual information or maximal information coefficient.
-    Based on my Master 1 internship in the Bordeaux Population Health center,
-    mentored by Boris Hejblum and Cecilia Samieri.
+    Based on my Master 1 internship at the Bordeaux Population Health center.
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
