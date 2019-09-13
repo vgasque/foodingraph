@@ -1,6 +1,6 @@
 Package: foodingraph
 Type: Package
-Title: Food network inference and visualization
+Title: Food Network Inference and Visualization
 Version: 0.1.0
 Author: Victor Gasque, Boris Hejblum, Cecilia Samieri
 Maintainer: Victor Gasque <victor.gasque@protonmail.com>
