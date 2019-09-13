@@ -24,7 +24,7 @@ It uses thresholds defined by simulation of independent associations using
 \code{\link{boot_simulated_cat_bin}}, such that it simulates independent
 associations between ordinal-ordinal, binary-binary and ordinal-binary pairs
 of variables.
-It calculates the CI bootstraps for each paiwise association of the variables'
+It calculates the CI bootstraps for each pairwise association of the variables'
 dataset, then compares the 1st percentile of these CI to the corresponding
 thresholds of independent data.
 \item \code{\link{boot_simulated_cat_bin}} : a function to determine the threshold
