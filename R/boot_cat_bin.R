@@ -46,7 +46,7 @@ boot_cat_bin <- function(obs_data,
                          threshold_bin_cat,
                          method = c("mi", "mic"),
                          boots = 5000,
-                         show_progress = T) {
+                         show_progress = TRUE) {
 
   method <- match.arg(method)
   message(paste("Performing boostrap inference with method : ", method))
@@ -70,7 +70,7 @@ boot_cat_bin <- function(obs_data,
   colnames(adj_matrix) <- colnames_data
   rownames(adj_matrix) <- colnames_data
 
-  if (show_progress == T) {
+  if (show_progress == TRUE) {
     pbar <- txtProgressBar(max = boots, style = 3)
   }
 
@@ -80,10 +80,10 @@ boot_cat_bin <- function(obs_data,
   # is for the bootstrap sample number
   adj_matrix_star <- array(NA, dim = c(n_col_data, n_col_data, boots))
   for (bootno in 1:boots) {
-    boot_indices <- sample(1:n_row_data, n_row_data, replace = T)
+    boot_indices <- sample(1:n_row_data, n_row_data, replace = TRUE)
     boot_sample <- obs_data[boot_indices,]
 
-    if (show_progress == T) {
+    if (show_progress == TRUE) {
       setTxtProgressBar(pbar, bootno)
     }
 
@@ -95,7 +95,7 @@ boot_cat_bin <- function(obs_data,
     }
   }
 
-  if (show_progress == T) {
+  if (show_progress == TRUE) {
     close(pbar)
   }
 

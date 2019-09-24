@@ -63,11 +63,11 @@
 graph_from_links_nodes <- function(network_data,
                                    main_title = "",
                                    node_type = c("point", "label"),
-                                   node_label_title = T,
+                                   node_label_title = TRUE,
                                    family_palette = NULL,
                                    layout = "nicely",
-                                   remove_null = T,
-                                   edge_alpha = T,
+                                   remove_null = TRUE,
+                                   edge_alpha = TRUE,
                                    edge_color = c("#6DBDE6", "#FF8C69"),
                                    edge_width_range = c(0.2,2),
                                    edge_alpha_range = c(0.4, 1),
@@ -95,7 +95,7 @@ graph_from_links_nodes <- function(network_data,
   # Create the igraph object
   network_igraph <- graph_from_data_frame(d = network_data$links,
                                           vertices = network_data$nodes,
-                                          directed = F)
+                                          directed = FALSE)
 
   # To compute node degrees and use it to set node size
   # (node degree is the number of edges linked to each node)
@@ -110,33 +110,35 @@ graph_from_links_nodes <- function(network_data,
   deg_table <- arrange(deg_table, desc(.data$degrees))
 
   # To remove unconnected nodes
-  if (remove_null == T) {
+  if (remove_null == TRUE) {
     network_igraph <- delete_vertices(network_igraph, deg == 0)
   }
 
-  if (edge_alpha == T) {
+  if (edge_alpha == TRUE) {
     # Set the alpha value
     E(network_igraph)$alpha <- E(network_igraph)$width
   }
 
 
   # Display either the node IDs (name) or title on the graph
-  if (node_label_title == T) {
+  if (node_label_title == TRUE) {
     node_label <- V(network_igraph)$title
   } else {
     node_label <- V(network_igraph)$name
   }
 
-  # For the graph layout : the method to display graph edges and nodes in the plot
+  # For the graph layout : the method to display graph edges and nodes
+  # in the plot
   network_layout <- create_layout(network_igraph, layout=layout, ...)
 
   # Display the graph
   net <- ggraph(network_layout)
 
   # Edges
-  if (edge_alpha == T) {
+  if (edge_alpha == TRUE) {
     net <- net +
-      geom_edge_link(aes(width = .data$width, color = .data$sign, alpha = .data$alpha)) +
+      geom_edge_link(aes(width = .data$width, color = .data$sign,
+                         alpha = .data$alpha)) +
       scale_edge_alpha(name = "Absolute weight", range = edge_alpha_range)
   } else {
     net <- net +
@@ -145,8 +147,9 @@ graph_from_links_nodes <- function(network_data,
 
   # Edges color and legend
   net <- net +
-    scale_edge_color_manual(name = "Edge sign", values = c("Negative" = edge_color[1],
-                                                           "Positive" = edge_color[2])) +
+    scale_edge_color_manual(name = "Edge sign",
+                            values = c("Negative" = edge_color[1],
+                                       "Positive" = edge_color[2])) +
     scale_edge_width(name = "Absolute weight", range = edge_width_range)
 
   # Nodes
@@ -154,7 +157,8 @@ graph_from_links_nodes <- function(network_data,
     if (node_type == "point") {
       net <- net + geom_node_point(aes(size = .data$size))
     } else {
-      net <- net + geom_node_label(aes(label = node_label, size = .data$size), repel = T)
+      net <- net + geom_node_label(aes(label = node_label, size = .data$size),
+                                   repel = TRUE)
     }
 
   } else {
@@ -163,13 +167,14 @@ graph_from_links_nodes <- function(network_data,
                                    color = "black", shape = 21)
     } else {
       net <- net + geom_node_label(aes(label = node_label, fill = .data$family,
-                                       size = .data$size), color = "black", repel = T)
+                                       size = .data$size), color = "black",
+                                   repel = TRUE)
     }
 
     # Nodes color and legend
     if (is.null(family_palette)) {
       net <- net +
-        scale_fill_viridis(discrete = T, name = "Food families")
+        scale_fill_viridis(discrete = TRUE, name = "Food families")
     } else {
       net <- net +
         scale_fill_manual(values = family_palette, name = "Food families")
@@ -178,7 +183,8 @@ graph_from_links_nodes <- function(network_data,
 
   if (node_type == "point") {
     net <- net +
-      geom_node_text(aes(label = node_label), size = node_label_size, repel = T)
+      geom_node_text(aes(label = node_label), size = node_label_size,
+                     repel = TRUE)
   }
 
   # Node labels

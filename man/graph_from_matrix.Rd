@@ -5,10 +5,10 @@
 \title{Display a graph from an adjacency matrix}
 \usage{
 graph_from_matrix(adjacency_matrix, legend, threshold = 0,
-  abs_threshold = T, filter_nodes = T, main_title = "",
-  node_type = c("point", "label"), node_label_title = T,
-  family_palette = NULL, layout = "nicely", remove_null = T,
-  edge_alpha = T, edge_color = c("#6DBDE6", "#FF8C69"),
+  abs_threshold = TRUE, filter_nodes = TRUE, main_title = "",
+  node_type = c("point", "label"), node_label_title = TRUE,
+  family_palette = NULL, layout = "nicely", remove_null = TRUE,
+  edge_alpha = TRUE, edge_color = c("#6DBDE6", "#FF8C69"),
   edge_width_range = c(0.2, 2), edge_alpha_range = c(0.4, 1),
   node_label_size = 3, legend_label_size = 10, ...)
 }

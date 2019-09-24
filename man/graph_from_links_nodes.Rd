@@ -5,9 +5,9 @@
 \title{Display a graph from a list of links and nodes}
 \usage{
 graph_from_links_nodes(network_data, main_title = "",
-  node_type = c("point", "label"), node_label_title = T,
-  family_palette = NULL, layout = "nicely", remove_null = T,
-  edge_alpha = T, edge_color = c("#6DBDE6", "#FF8C69"),
+  node_type = c("point", "label"), node_label_title = TRUE,
+  family_palette = NULL, layout = "nicely", remove_null = TRUE,
+  edge_alpha = TRUE, edge_color = c("#6DBDE6", "#FF8C69"),
   edge_width_range = c(0.2, 2), edge_alpha_range = c(0.4, 1),
   node_label_size = 3, legend_label_size = 10, ...)
 }

@@ -45,8 +45,8 @@
 links_nodes_from_mat <- function(adjacency_matrix,
                                  legend,
                                  threshold = 0,
-                                 abs_threshold = T,
-                                 filter_nodes = T) {
+                                 abs_threshold = TRUE,
+                                 filter_nodes = TRUE) {
 
   # Change the type of the correlation matrix to be able to alter its structure
   if (is.matrix(adjacency_matrix)) {
@@ -77,7 +77,7 @@ links_nodes_from_mat <- function(adjacency_matrix,
     mutate(width = abs(.data$weight))
 
   nodes <- legend
-  if (filter_nodes == T) {
+  if (filter_nodes == TRUE) {
     # Select the nodes for which their names exist in the adjacency matrix
     nodes_names <- which(legend[,1] %in% colnames(adjacency_matrix))
     nodes <- legend[nodes_names,]
