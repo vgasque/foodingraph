@@ -20,9 +20,9 @@
 #' legend <- data.frame(name = colnames(iris[,-5]),
 #'                      title = colnames(iris[,-5]))
 #' graph_iris <- graph_from_matrix(adj_matrix, legend, main_title = "Iris graph")
-#' \dontrun{
-#' save_graph(graph_iris)
-#' }
+#'
+#' # Save to a in a temporary file location
+#' save_graph(graph_iris, tempfile(fileext = ".png"))
 #' @importFrom ggplot2 ggsave
 #' @importFrom igraph graph_id
 #' @export

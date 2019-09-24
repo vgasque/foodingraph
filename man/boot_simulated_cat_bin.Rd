@@ -40,18 +40,11 @@ mutual information or the maximal information coefficient.
 The percentile method is used to calculate this interval.
 }
 \examples{
-if(interactive()) {
-  boot_simulated_cat_bin("cat", "mic")
-}
+
+boot_simulated_cat_bin("cat", "mic")
 }
 \references{
-\enumerate{
-\item Reshef, D. N., Y. A. Reshef, H. K. Finucane, S. R. Grossman, G. McVean,
-P. J. Turnbaugh, E. S. Lander, M. Mitzenmacher, and P. C. Sabeti.
-"Detecting Novel Associations in Large Data Sets."
-Science 334, no. 6062 (December 16, 2011): 1518_24.
-\item Meyer, Patrick E, Frederic Lafitte, and Gianluca Bontempi.
-"Minet: A R_Bioconductor Package for Inferring Large Transcriptional Networks
-Using Mutual Information." BMC Bioinformatics 9, no. 1 (December 2008).
-}
+Reshef et al. (2011) <doi:10.1126/science.1205438>
+
+Meyer et al. (2008) <doi:10.1186/1471-2105-9-461>
 }

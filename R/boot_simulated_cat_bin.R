@@ -24,20 +24,12 @@
 #' @return The mean of the percentile values.
 #'
 #' @examples
-#' if(interactive()) {
-#'   boot_simulated_cat_bin("cat", "mic")
-#' }
-#' @references
-#' \enumerate{
-#' \item Reshef, D. N., Y. A. Reshef, H. K. Finucane, S. R. Grossman, G. McVean,
-#' P. J. Turnbaugh, E. S. Lander, M. Mitzenmacher, and P. C. Sabeti.
-#' "Detecting Novel Associations in Large Data Sets."
-#' Science 334, no. 6062 (December 16, 2011): 1518_24.
-#' \item Meyer, Patrick E, Frederic Lafitte, and Gianluca Bontempi.
-#' "Minet: A R_Bioconductor Package for Inferring Large Transcriptional Networks
-#' Using Mutual Information." BMC Bioinformatics 9, no. 1 (December 2008).
-#' }
 #'
+#' boot_simulated_cat_bin("cat", "mic")
+#' @references
+#' Reshef et al. (2011) <doi:10.1126/science.1205438>
+#'
+#' Meyer et al. (2008) <doi:10.1186/1471-2105-9-461>
 #' @importFrom stats rbinom rmultinom runif
 #' @importFrom minerva cstats
 #' @export
@@ -61,13 +53,13 @@ boot_simulated_cat_bin <- function(type = c("cat", "bin", "bincat"),
     var2 <- rbinom(size, 1, runif(1))
   }
 
-  print(paste("Confidence-interval bootstrap on simulated independent variables of type:", type))
-  print(paste("Number of simulations:", simu))
-  print(paste("Number of bootstraps per simulations:", boots))
-  print(paste("Sample size for each simulation:", size))
+  message(paste("Confidence-interval bootstrap on simulated independent variables of type:", type))
+  message(paste("Number of simulations:", simu))
+  message(paste("Number of bootstraps per simulations:", boots))
+  message(paste("Sample size for each simulation:", size))
 
-  print("Contigency table of the simulated data:")
-  print(table(var1, var2))
+  message("Contigency table of the simulated data:")
+  message(table(var1, var2))
 
   res_percentile <- rep(NA, simu)
   for (simu_no in 1:simu) {
@@ -83,10 +75,10 @@ boot_simulated_cat_bin <- function(type = c("cat", "bin", "bincat"),
       }
     }
     res_percentile[simu_no] <- quantile(estimate_star, percentile)
-    print(paste("Simulation", simu_no, ":", res_percentile[simu_no]))
+    message(paste("Simulation", simu_no, ":", res_percentile[simu_no]))
   }
 
   mean_percentile <- mean(res_percentile)
-  print(paste("Mean of the percentiles:", mean_percentile))
+  message(paste("Mean of the percentiles:", mean_percentile))
   mean_percentile
 }

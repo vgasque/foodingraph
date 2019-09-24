@@ -1,8 +1,17 @@
 ## Resubmission
 This is a resubmission.
 
-* Remove LICENSE file and update DESCRIPTION
+* Removed LICENSE file and updated DESCRIPTION
   file from GPL-3 + LICENSE to GPL-3
+* Removed \dontrun{} from save_graph.R and
+  added tempfile() to save the example in a
+  temporary file location
+* Removed if(interactive()){} in
+  boot_simulated_cat_bin.R
+* Replaced print() with message() in
+  boot_simulated_cat_bin.R
+* Updated all references in the documentation
+  to format Author (date) <doi:> or <https://>
 
 ## Test environments
 * local OS X install, R 3.6.1
