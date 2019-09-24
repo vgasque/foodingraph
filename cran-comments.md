@@ -10,6 +10,8 @@ This is a resubmission.
   boot_simulated_cat_bin.R
 * Replaced print() with message() in
   boot_simulated_cat_bin.R
+* Updated boot_simulated_cat_bin.R example to
+  run in less than 5s.
 * Updated all references in the documentation
   to format Author (date) <doi:> or <https://>
 * Replaced all T/F with TRUE/FALSE

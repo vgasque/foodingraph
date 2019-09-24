@@ -41,7 +41,7 @@ The percentile method is used to calculate this interval.
 }
 \examples{
 
-boot_simulated_cat_bin("cat", "mic")
+boot_simulated_cat_bin("cat", "mic", 2, 500)
 }
 \references{
 Reshef et al. (2011) <doi:10.1126/science.1205438>
