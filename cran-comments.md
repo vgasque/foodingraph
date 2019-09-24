@@ -12,6 +12,7 @@ This is a resubmission.
   boot_simulated_cat_bin.R
 * Updated all references in the documentation
   to format Author (date) <doi:> or <https://>
+* Replaced all T/F with TRUE/FALSE
 
 ## Test environments
 * local OS X install, R 3.6.1
