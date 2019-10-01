@@ -1,6 +1,8 @@
 ## Resubmission
 This is a resubmission.
 
+* Added references to the Description text of
+  the DESCRIPTION file
 * Removed LICENSE file and updated DESCRIPTION
   file from GPL-3 + LICENSE to GPL-3
 * Removed \dontrun{} from save_graph.R and
@@ -13,7 +15,7 @@ This is a resubmission.
 * Updated boot_simulated_cat_bin.R example to
   run in less than 5s.
 * Updated all references in the documentation
-  to format Author (date) <doi:> or <https://>
+  to the format Author (date) <doi:> or <https://>
 * Replaced all T/F with TRUE/FALSE
 
 ## Test environments

@@ -11,6 +11,9 @@ Description: Displays a weighted undirected food graph from an adjacency matrix.
     Can perform confidence-interval bootstrap inference with mutual information
     or maximal information coefficient.
     Based on my Master 1 internship at the Bordeaux Population Health center.
+    References : Reshef et al. (2011) <doi:10.1126/science.1205438>,
+    Meyer et al. (2008) <doi:10.1186/1471-2105-9-461>,
+    Liu et al. (2016) <doi:10.1371/journal.pone.0158247>.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
