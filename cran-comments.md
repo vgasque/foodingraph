@@ -29,4 +29,8 @@ This is a resubmission.
 
 * This is a new release.
 * Possibly mis-spelled words in DESCRIPTION:
-  undirected (10:34)
+    Liu (16:5)
+    Reshef (14:18)
+    al (14:28, 15:14, 16:12)
+    et (14:25, 15:11, 16:9)
+    undirected (10:34)
